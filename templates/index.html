@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='globals.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='styleguide.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style.css') }}"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+		<script src="{{ url_for('static', filename='index.js') }}"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<script></script>
+	</head>
+	<body>
+		<div class="screen">
+			<div class="overlap-group">
+				<img class="rectangle" />
+				<div class="group">
+					<img
+						class="emoji"
+						src="{{ url_for('static', filename='emoji_u1f95d.svg') }}"
+					/>
+					<img
+						class="emoji-ufc"
+						src="{{ url_for('static', filename='emoji_u1f96c.svg') }}"
+					/>
+					<img
+						class="emoji-ufa"
+						src="{{ url_for('static', filename='emoji_u1f36a.svg') }}"
+					/>
+					<img
+						class="img"
+						src="{{ url_for('static', filename='emoji_u1f34a.svg') }}"
+					/>
+					<img
+						class="emoji-ufe"
+						src="{{ url_for('static', filename='emoji_u1f34e.svg') }}"
+					/>
+					<img
+						class="group-2"
+						src="{{ url_for('static', filename='group-500.svg') }}"
+					/>
+					<img
+						class="emoji-2"
+						src="{{ url_for('static', filename='emoji_u1f35e.svg') }}"
+					/>
+				</div>
+				<img
+					class="logo"
+					src="{{ url_for('static', filename='logo.svg') }}"
+				/>
+				<div class="div"></div>
+				<div class="text-wrapper">✨냉장고 속 사진을 찍어주세요!✨</div>
+				<p class="p">
+					오직 당신만을 위한 레시피를<br />따라하기 쉽게 들려드립니다.
+				</p>
+				<img
+					class="line"
+					src="{{ url_for('static', filename='line-1.svg') }}"
+				/>
+			</div>
+			<div class="frame">
+				<img
+					class="image"
+					id="previewImg"
+					src="{{ url_for('static', filename='camera.svg') }}"
+				/>
+				<video id="video" class="video-2">
+					Video stream not available.
+				</video>
+				<canvas id="canvas"></canvas>
+			</div>
+			<div class="frame-2">
+				<label class="button" for="file1" id="btnUploadImage">
+					<input
+						type="file"
+						id="file1"
+						class="upload-hidden"
+						name="file1"
+					/>
+					<div class="label">사진 업로드</div>
+				</label>
+				<button
+					class="button"
+					id="btnShootStart"
+					onclick="clickShootStart()"
+				>
+					<div class="label">사진 재촬영</div>
+				</button>
+				<button class="button-2" id="btnShootImage">
+					<div class="label">사진 촬영</div>
+				</button>
+			</div>
+			<div class="frame-3">
+				<p class="atom-text">📌 냉장고 속 재료&nbsp;&nbsp;📌</p>
+				<div id="tags" class="tags-2"></div>
+				<input
+					type="text"
+					id="name"
+					class="fields"
+					placeholder="ex) 바나나, 토마토, 양상추 ..."
+					name="name"
+				/>
+			</div>
+			<div class="frame-4">
+				<form method="post" action="select">
+					<button
+						class="label-wrapper"
+						onclick="clickToSelect()"
+						type="submit"
+					>
+						<div class="label-2">다음</div>
+					</button>
+					<input type="hidden" id="ingredients" name="ingredients" />
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

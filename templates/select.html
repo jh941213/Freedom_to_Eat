@@ -1,0 +1,308 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='globals.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='styleguide.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style_select.css') }}"
+		/>
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.slim.js"
+			integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+			crossorigin="anonymous"
+		></script>
+		<script src="{{ url_for('static', filename='select.js') }}"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<script>
+			function clickToConfirm() {
+				window.location.replace("{{ url_for('confirm') }}")
+			}
+		</script>
+	</head>
+	<body>
+		<div class="screen">
+			<div class="overlap">
+				<img
+					class="arrow-back-ios"
+					src="{{ url_for('static', filename='arrow-back-ios.svg') }}"
+				/>
+				<div class="frame">
+					<div class="logo">
+						<img
+							class="image"
+							src="{{ url_for('static', filename='frame-319.svg') }}"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="overlap-group-wrapper">
+				<div class="overlap-group">
+					<div class="text-wrapper">
+						어떤 레시피를 듣고 싶으신가요?
+					</div>
+					<p class="p">
+						자세히 응답할수록<br />내게 꼭 맞는 레시피를 찾을 수
+						있어요!
+					</p>
+					<img
+						class="line"
+						src="{{ url_for('static', filename='line-1.svg') }}"
+					/>
+				</div>
+			</div>
+			<div class="frame-2">
+				<div class="atom-text">🗒️ 메뉴 🗒️</div>
+				<div class="frame-3">
+					<div class="chip"><div class="chip-text">한식</div></div>
+					<div class="chip-text-wrapper">
+						<div class="chip-text-2">중식</div>
+					</div>
+					<div class="div-wrapper">
+						<div class="chip-text-2">일식</div>
+					</div>
+					<div class="chip-2">
+						<div class="chip-text-2">서양식</div>
+					</div>
+					<div class="div-wrapper">
+						<div class="chip-text-2">분식</div>
+					</div>
+					<div class="chip-2">
+						<div class="chip-text-2">간식</div>
+					</div>
+					<div class="div-wrapper">
+						<div class="chip-text-2">이유식</div>
+					</div>
+					<div class="chip-2">
+						<div class="chip-text-2">채식</div>
+					</div>
+					<div class="chip-3">
+						<div class="chip-text-2">건강식</div>
+					</div>
+					<div class="chip-4">
+						<div class="chip-text-2">아무거나</div>
+					</div>
+				</div>
+				<div class="atom-text-2">😋 먹을 사람 😋</div>
+				<div class="frame-3">
+					<div class="chip-5">
+						<div class="chip-text-2">임산부</div>
+					</div>
+					<div class="chip-text-wrapper">
+						<div class="chip-text-2">산후조리</div>
+					</div>
+					<div class="div-wrapper">
+						<div class="chip-text-2">당뇨 환자</div>
+					</div>
+					<div class="chip-6"><div class="chip-text">아기</div></div>
+					<div class="div-wrapper">
+						<div class="chip-text-2">유당불내증</div>
+					</div>
+					<div class="chip-2">
+						<div class="chip-text-2">다이어터</div>
+					</div>
+					<div class="div-wrapper">
+						<div class="chip-text-2">무슬림</div>
+					</div>
+					<div class="chip-2">
+						<div class="chip-text-2">힌두교</div>
+					</div>
+					<div class="chip-3">
+						<div class="chip-text-2">항암치료</div>
+					</div>
+					<div class="chip-4">
+						<div class="chip-text-2">누구나</div>
+					</div>
+				</div>
+				<div class="atom-text-2">⭐ 취향 ⭐</div>
+				<div class="frame-3">
+					<div class="chip-5">
+						<div class="chip-text-2">매콤</div>
+					</div>
+					<div class="chip-text-wrapper">
+						<div class="chip-text-2">달콤</div>
+					</div>
+					<div class="div-wrapper">
+						<div class="chip-text-2">새콤</div>
+					</div>
+					<div class="chip-6"><div class="chip-text">건강</div></div>
+					<div class="chip-3">
+						<div class="chip-text-2">간단</div>
+					</div>
+					<div class="chip-4">
+						<div class="chip-text-2">아무거나</div>
+					</div>
+				</div>
+			</div>
+			<p class="chip-text-3">
+				테스트단계는 지원자들의 냉장고 데이터를 기반으로 제작되었습니다.
+			</p>
+			<div class="frame-4">
+				<button class="button" onclick="clickToConfirm()">
+					<div class="label">레시피 찾기</div>
+				</button>
+			</div>
+		</div>
+	</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='globals.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='styleguide.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style_select.css') }}"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="{{ url_for('static', filename='select.js') }}"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<script>
+			function clickToConfirm() {
+				window.location.replace("{{ url_for('confirm') }}")
+			}
+		</script>
+	</head>
+	<body>
+		<div class="screen">
+			<div class="overlap">
+				<img
+					class="arrow-back-ios"
+					src="{{ url_for('static', filename='arrow-back-ios.svg') }}"
+					onclick="window.history.back()"
+				/>
+				<div class="frame">
+					<div class="logo">
+						<img
+							class="image"
+							src="{{ url_for('static', filename='frame-319.svg') }}"
+						/>
+					</div>
+				</div>
+			</div>
+			<div class="overlap-group-wrapper">
+				<div class="overlap-group">
+					<div class="text-wrapper">
+						어떤 레시피를 듣고 싶으신가요?
+					</div>
+					<p class="p">
+						자세히 응답할수록<br />내게 꼭 맞는 레시피를 찾을 수
+						있어요!
+					</p>
+					<img
+						class="line"
+						src="{{ url_for('static', filename='line-1.svg') }}"
+					/>
+				</div>
+			</div>
+			<div class="frame-2">
+				<div class="atom-text" id="menu">🗒️ 메뉴 🗒️</div>
+				<div class="frame-3">
+					<div class="chip" data-value="한식">
+						<div class="chip-text">한식</div>
+					</div>
+					<div class="chip-text-wrapper" data-value="중식">
+						<div class="chip-text-2">중식</div>
+					</div>
+					<div class="div-wrapper" data-value="일식">
+						<div class="chip-text-2">일식</div>
+					</div>
+					<div class="chip-2" data-value="서양식">
+						<div class="chip-text-2">서양식</div>
+					</div>
+					<div class="div-wrapper" data-value="분식">
+						<div class="chip-text-2">분식</div>
+					</div>
+					<div class="chip-2" data-value="간식">
+						<div class="chip-text-2">간식</div>
+					</div>
+					<div class="div-wrapper" data-value="이유식">
+						<div class="chip-text-2">이유식</div>
+					</div>
+					<div class="chip-2" data-value="채식">
+						<div class="chip-text-2">채식</div>
+					</div>
+					<div class="chip-3" data-value="건강식">
+						<div class="chip-text-2">건강식</div>
+					</div>
+					<div class="chip-4" data-value="아무거나">
+						<div class="chip-text-2">아무거나</div>
+					</div>
+				</div>
+				<div class="atom-text-2" id="detail">😋 먹을 사람 😋</div>
+				<div class="frame-3">
+					<div class="chip-5" data-value="임산부">
+						<div class="chip-text-2">임산부</div>
+					</div>
+					<div class="chip-text-wrapper" data-value="산후조리">
+						<div class="chip-text-2">산후조리</div>
+					</div>
+					<div class="div-wrapper" data-value="당뇨 환자">
+						<div class="chip-text-2">당뇨환자</div>
+					</div>
+					<div class="chip-6"><div class="chip-text">아기</div></div>
+					<div class="div-wrapper" data-value="유당불내증">
+						<div class="chip-text-2">유당불내증</div>
+					</div>
+					<div class="chip-2" data-value="다이어터">
+						<div class="chip-text-2">다이어터</div>
+					</div>
+					<div class="div-wrapper" data-value="무슬림">
+						<div class="chip-text-2">무슬림</div>
+					</div>
+					<div class="chip-2" data-value="흰두교">
+						<div class="chip-text-2">힌두교</div>
+					</div>
+					<div class="chip-3" data-value="항암치료">
+						<div class="chip-text-2">항암치료</div>
+					</div>
+					<div class="chip-4" data-value="누구나">
+						<div class="chip-text-2">누구나</div>
+					</div>
+				</div>
+				<div class="atom-text-2" id="favor">⭐ 취향 ⭐</div>
+				<div class="frame-3">
+					<div class="chip-5" data-value="매콤">
+						<div class="chip-text-2">매콤</div>
+					</div>
+					<div class="chip-text-wrapper" data-value="달콤">
+						<div class="chip-text-2">달콤</div>
+					</div>
+					<div class="div-wrapper" data-value="새콤">
+						<div class="chip-text-2">새콤</div>
+					</div>
+					<div class="chip-6" data-value="건강">
+						<div class="chip-text">건강</div>
+					</div>
+					<div class="chip-3" data-value="간단">
+						<div class="chip-text-2">간단</div>
+					</div>
+					<div class="chip-4" data-value="아무거나">
+						<div class="chip-text-2">아무거나</div>
+					</div>
+				</div>
+			</div>
+			<p class="chip-text-3">
+				테스트단계는 지원자들의 냉장고 데이터를 기반으로 제작되었습니다.
+			</p>
+			<div class="frame-4">
+				<button class="button" id="generatePromptButton">
+					<div class="label">레시피 찾기</div>
+				</button>
+			</div>
+		</div>
+	</body>
+</html>

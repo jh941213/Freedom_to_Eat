@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='globals.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='styleguide.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style_confirm.css') }}"
+		/>
+		<script
+			src="https://code.jquery.com/jquery-3.7.1.slim.js"
+			integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
+			crossorigin="anonymous"
+		></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<script>
+			function clickToPrompt(menu_name) {
+				window.location.href = "/prompt?menu_name=" + menu_name
+				/* window.location.replace(
+					"{{ url_for('prompt', menu_name='" + menu_name + "') }}"
+				) */
+			}
+
+			function clickToIndex() {
+				window.location.replace("{{ url_for('select') }}")
+			}
+		</script>
+	</head>
+	<body>
+		<div class="screen">
+			<div class="overlap">
+				<div class="frame">
+					<div class="logo">
+						<img
+							class="image"
+							src="{{ url_for('static', filename='frame-319.svg') }}"
+						/>
+					</div>
+				</div>
+				<img
+					class="arrow-back-ios"
+					src="{{ url_for('static', filename='arrow-back-ios.svg') }}"
+					onclick="window.history.back()"
+				/>
+			
+			</div>
+			<div class="overlap-group">
+				<div class="div">
+					<div>
+						<span class="span">{{ detail_type }} </span>
+						<span class="text-wrapper-2">를 위한<br /></span>
+					</div>
+					<div>
+						<span class="span">{{ favor_type }} </span>
+						<span class="text-wrapper-2">한<br /></span>
+					</div>
+					<div>
+						<span class="span">{{ menu }} </span>
+						<span class="text-wrapper-2">입니다.</span>
+					</div>
+				</div>
+				<div class="div-inform">
+					<img
+						class="line"
+						src="{{ url_for('static', filename='line-1.svg') }}"
+					/>
+					<p class="text-wrapper">
+						메뉴 선택 시, 해당 레시피를 들려드려요.
+					</p>
+				</div>
+			</div>
+
+			{% if menus %}
+			<div class="menu-1 menu-style">
+				<button class="button" onclick="clickToPrompt('{{menus[0]}}')">
+					<div class="label">{{menus[0]}}</div>
+				</button>
+			</div>
+			<div class="menu-2 menu-style">
+				<button
+					class="label-wrapper"
+					onclick="clickToPrompt('{{menus[1]}}')"
+				>
+					<div class="label">{{menus[1]}}</div>
+				</button>
+			</div>
+			<div class="menu-3 menu-style">
+				<button
+					class="div-wrapper"
+					onclick="clickToPrompt('{{menus[2]}}')"
+				>
+					<div class="label">{{menus[2]}}</div>
+				</button>
+			</div>
+			{% endif %}
+			<div class="chip-text">원하는 메뉴가 아닌가요?</div>
+			<div class="menu-4">
+				<button class="button-2" onclick="clickToIndex()">
+					<div class="label-2">다시 검색하기</div>
+				</button>
+			</div>
+		</div>
+	</body>
+</html>

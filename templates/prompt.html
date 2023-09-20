@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='globals.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='styleguide.css') }}"
+		/>
+		<link
+			rel="stylesheet"
+			href="{{ url_for('static', filename='style_prompt.css') }}"
+		/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<script>
+			const menuName = "{{ result['menu_name'] }}";
+			window.onload = function (e) {
+				var btns = document.getElementById("btnShare")
+				var clipboard = new ClipboardJS(btns)
+
+				clipboard.on("success", function (e) {
+					console.log(e)
+					alert("클립보드 복사가 완료되었습니다!\n")
+				})
+
+				clipboard.on("error", function (e) {
+					console.log(e)
+					alerft(
+						"클립보드 복사가 실패했습니다!\n관리자에게 문의해주세요."
+					)
+				})
+			}
+
+			function clickToIndex() {
+				window.location.replace("{{ url_for('index') }}")
+			}
+
+			function audioPlay() {
+				var audio =
+					document.getElementsByClassName("audio-ingredients")[0]
+				if (audio.paused) {
+					audio.play()
+				} else {
+					audio.pause()
+				}
+			}
+
+			function audioPlay2() {
+				var audio = document.getElementsByClassName("audio-listenall")[0]
+				if (audio.paused) {
+					audio.play()
+				} else {
+					audio.pause()
+				}
+			}
+			function fetchAndNavigate() {
+				const query = `${menuName} 레시피`;  // 메뉴 이름과 "레시피" 문자열을 결합합니다.
+				$.get(`/fetch_youtube_link?query=${query}`, function(data) {
+					window.open(data.url, '_blank');  // 새 창에서 URL을 엽니다.
+				});
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div class="screen">
+			<div class="overlap">
+				<div class="frame">
+					<div class="logo">
+						<img
+							class="image"
+							src="{{ url_for('static', filename='frame-319.svg') }}"
+						/>
+					</div>
+				</div>
+				<img
+					class="arrow-back-ios"
+					src="{{ url_for('static', filename='arrow-back-ios.svg') }}"
+					onclick="window.history.back()"
+				/>
+				<img
+					class="home"
+					src="{{ url_for('static', filename='home.svg') }}"
+					onclick="clickToIndex()"
+				/>
+				{% if result %}
+				<audio controls class="audio-ingredients">
+					<source
+						src="{{ result['audio_ingre'] }}"
+						type="audio/mpeg"
+					/>
+					Your browser does not support the audio tag.
+				</audio>
+				{% else %}
+				<audio controls class="audio-ingredients"">
+					<source src="" type="audio/mpeg" />
+					Your browser does not support the audio tag.
+				</audio>
+				{% endif %}
+			</div>
+			{% if result %}
+			<div class="overlap-group">
+				<div class="text-wrapper">{{ result['menu_name'] }}</div>
+				<div class="menu-name-speaker" onclick="audioPlay()">
+					<img
+						class="speaker-img"
+						src="{{ url_for('static', filename='volume-2.svg') }}"
+					/>
+				</div>
+			</div>
+			<div class="audio-group">
+				<!-- for -->
+				{%for idx, audio_file in enumerate(result['audio'], start=1)%}
+				<div class="recipe-group">
+					<div class="recipe-box">
+						<div class="div-recipe">{{idx}}</div>
+					</div>
+					<div class="recipe-audio-box">
+						<audio controls class="recipe-audio-inner">
+							<source src="{{audio_file}}" type="audio/mpeg" />
+							Your browser does not support the audio tag.
+						</audio>
+					</div>
+				</div>
+				{%endfor%}
+				<!-- <audio controls>
+					<source src="" type="audio/mpeg" />
+					Your browser does not support the audio tag.
+				</audio> -->
+			</div>
+			{% endif %}
+			<div class="menu-outer">
+				<div class="menu-1 menu_style-2">
+					<button
+						class="button"
+						onclick="audioPlay2()"
+						id="btnListenAll"
+					>
+						<div class="label">전체듣기</div>
+						{% if result %}
+						<audio controls class="audio-listenall">
+							<source
+								src="{{ result['audio_all'] }}"
+								type="audio/mpeg"
+							/>
+							Your browser does not support the audio tag.
+						</audio>
+						{% else %}
+						<audio controls class="audio-listenall"">
+							<source src="" type="audio/mpeg" />
+							Your browser does not support the audio tag.
+						</audio>
+						{% endif %}
+					</button>
+				</div>
+				<div class="menu-1 menu_style-3">
+					<button class="label-wrapper" onclick="fetchAndNavigate()">
+						<div class="label">영상보기</div>
+					</button>
+				</div>
+			</div>
+			{% if result %}
+			<div class="menu-3">
+				<button
+					class="button-2"
+					id="btnShare"
+					data-clipboard-text="{{ result['recipe'] }}"
+				>
+					<div class="label-2">공유하기</div>
+				</button>
+			</div>
+			{% endif %}
+		</div>
+	</body>
+</html>
